@@ -1,0 +1,11 @@
+[package]
+name = "type_eq"
+version = "0.1.0"
+authors = ["Peter Hall <peterjoel@gmail.com>"]
+description = "Tiny utils for type-level constraints and inference"
+keywords = ["type", "inference", "equality"]
+license = "MIT"
+categories = ["no-std", "rust-patterns"]
+repository = "https://github.com/peterjoel/type_eq"
+
+[dependencies]
