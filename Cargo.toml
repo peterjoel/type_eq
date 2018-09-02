@@ -1,6 +1,6 @@
 [package]
 name = "type_eq"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Peter Hall <peterjoel@gmail.com>"]
 description = "Tiny utils for type-level constraints and inference"
 keywords = ["type", "inference", "equality"]
