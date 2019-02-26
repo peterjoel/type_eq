@@ -41,6 +41,14 @@ unsafe impl<A> TypeEq<A, A> for Constrain {
     fn as_eq(&self, a: A) -> A { a }
 }
 
+pub unsafe trait Outlives<'a: 'a, 'b, A: 'a, B: 'b> {
+    fn proof<'r>(&self, a: &'r A) -> &'r B;
+}
+
+unsafe impl<'a: 'a, 'b, A: 'a, B: 'b> Outlives<'a, 'b, A, B> for Constrain {
+    fn proof<'r>(&self, _: &'r A) -> &'r B { unimplemented!() }
+}
+
 /// Type-level properties. This trait can be used to associate marker types with properties of
 /// the implementating type.
 /// 
@@ -48,7 +56,7 @@ unsafe impl<A> TypeEq<A, A> for Constrain {
 /// ```
 /// use type_eq::{Constrain, Has, TypeEq};
 /// 
-/// // marler type for the "name" property
+/// // marker type for the "name" property
 /// struct Name;
 /// 
 /// struct Foo;
@@ -74,3 +82,17 @@ pub trait Has<Prop> {
         Constrain: TypeEq<Prop, P>;
 }
 
+
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test() {
+        let s1 = String::from("s1");
+        {
+            let s2 = String::from("s2");
+
+
+        }
+    }
+}
